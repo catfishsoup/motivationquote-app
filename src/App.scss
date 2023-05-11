@@ -1,0 +1,16 @@
+$main-gradient: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+$title-font: 'Pacifico', cursive;
+$body-font: 'Asap', sans-serif;
+
+body {
+  background: $main-gradient;
+  font-family: $body-font;
+  color: white;
+}
+
+
+.header {
+  font-family: $title-font;
+
+  font-size: 3rem;
+}

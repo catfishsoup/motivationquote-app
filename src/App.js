@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss'
+import quoteService from './services/quote'
 
-function App() {
+import React, {useEffect, useState} from 'react'
+const Title = ({header}) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <h1 className="header">{header}</h1>
     </div>
-  );
+  )
 }
 
-export default App;
+const Quote = ({quote, newQuote}) => {
+  return (
+    <div>
+      <div>"{[quote[1]]}" - {quote[2]}</div>
+      <button onClick={newQuote}>Get New Quote</button>
+    </div>
+  )
+}
+
+// Main
+const App = () => {
+  const [quote, setQuote] = useState('')
+  const [clicked, setClicked] = useState(false)
+
+
+  const newQuote = () => {
+    if(clicked === false) {
+      setClicked(true)
+    }
+
+    setClicked(!clicked)
+  }
+
+  useEffect(() => {
+    quoteService.getQuote().then(initialQuote => {
+      setQuote(initialQuote)
+    })
+
+
+  }, [clicked])
+
+  return (
+    <div>
+    <Title header="Motivational Quote"/>
+    <Quote quote={quote} newQuote={newQuote}/>
+  </div>
+  )
+  
+}
+  
+
+export default App
