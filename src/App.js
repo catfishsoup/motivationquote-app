@@ -12,9 +12,9 @@ const Title = ({header}) => {
 
 const Quote = ({quote, newQuote}) => {
   return (
-    <div>
-      <div>"{[quote[1]]}" - {quote[2]}</div>
-      <button onClick={newQuote}>Get New Quote</button>
+    <div className="quote-block">
+      <div className="quote">"<i>{[quote[1]]}</i>" - {quote[2]}</div>
+      <button onClick={newQuote} className="quote-btn">Get New Quote</button>
     </div>
   )
 }
@@ -42,7 +42,7 @@ const App = () => {
   }, [clicked])
 
   return (
-    <div>
+    <div className="container">
     <Title header="Motivational Quote"/>
     <Quote quote={quote} newQuote={newQuote}/>
   </div>

@@ -1,16 +1,55 @@
 $main-gradient: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 $title-font: 'Pacifico', cursive;
 $body-font: 'Asap', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   background: $main-gradient;
   font-family: $body-font;
   color: white;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
+.container {
+  max-width: 80%;
+  overflow-wrap: break-word;
+  margin: auto;
+}
 
 .header {
   font-family: $title-font;
+  margin: 0.5em;
+  text-align: center;
+  font-size: clamp(2rem, 10vw, 5rem);
+}
 
-  font-size: 3rem;
+.quote-block {
+  text-align: center;
+  font-size: clamp(0.5rem, 10vw, 2rem);
+
+}
+.quote {
+  margin: 1em;
+}
+.quote-btn {
+  padding: 1em;
+  margin: 1em;
+  border-radius: 2em;
+  background: none;
+  border: 3px solid rgba(162, 210, 255, 1);
+  color: white;
+  transition: 0.2s;
+  box-shadow: 10px 10px 32px -10px rgba(0,0,0,0.25);
+}
+
+.quote-btn:hover {
+  background:  rgba(162, 210, 255, 0.5);
+  transform: scale(1.05);
 }
